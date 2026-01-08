@@ -1,3 +1,4 @@
+import AboutOrganizationSection from "../components/aboutComponents/AboutOrganizationSection";
 import HeroSlider from "../components/HeroSlider";
 import StatsBar from "../components/StatsBar";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <HeroSlider />
       <StatsBar />
+      <AboutOrganizationSection/>
     </>
   );
 };

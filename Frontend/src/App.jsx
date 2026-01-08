@@ -10,6 +10,7 @@ import Gallery from "./pages/Gallary";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
+import BookAppointmentForm from "./pages/BookYourAppointment";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
           <Route path="/gallery" element={<Gallery/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/cart" element={<Cart/>} />
-          
+          <Route path="/bookappointment" element={<BookAppointmentForm/>} />
 
           {/* Safety fallback */}
           <Route
