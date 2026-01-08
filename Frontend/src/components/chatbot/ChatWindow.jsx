@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const BACKEND_URL = "https://vdp-7v1e.onrender.com/api/chat";
+
 const ChatWindow = ({ onClose }) => {
   const [messages, setMessages] = useState([
     { role: "bot", text: "Hi 👋 How can I help you today?" },
@@ -17,15 +19,21 @@ const ChatWindow = ({ onClose }) => {
     setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
 
     try {
-      const res = await fetch("http://localhost:5000/api/chat", {
+      // ⏳ Timeout controller (Render cold start safety)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s
+
+      const res = await fetch(BACKEND_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ message: userMessage }),
+        signal: controller.signal,
       });
 
-      // 🔴 Backend not reachable or error
+      clearTimeout(timeoutId);
+
       if (!res.ok) {
         throw new Error(`Server error (${res.status})`);
       }
@@ -33,7 +41,7 @@ const ChatWindow = ({ onClose }) => {
       const data = await res.json();
 
       if (!data.reply) {
-        throw new Error("Empty response from AI");
+        throw new Error("No response from AI");
       }
 
       setMessages((prev) => [
@@ -42,12 +50,20 @@ const ChatWindow = ({ onClose }) => {
       ]);
     } catch (err) {
       console.error("Chat Error:", err);
+
+      let errorText = "❌ Something went wrong.";
+
+      if (err.name === "AbortError") {
+        errorText =
+          "⏳ Server is waking up. Please try again in a few seconds.";
+      } else {
+        errorText =
+          "❌ Unable to reach AI server. Please try again later.";
+      }
+
       setMessages((prev) => [
         ...prev,
-        {
-          role: "bot",
-          text: "❌ Unable to connect to AI server. Is backend running?",
-        },
+        { role: "bot", text: errorText },
       ]);
     } finally {
       setLoading(false);
@@ -59,10 +75,7 @@ const ChatWindow = ({ onClose }) => {
       {/* Header */}
       <div className="bg-blue-600 text-white px-4 py-3 flex justify-between items-center">
         <span className="font-semibold">VDPatil Assistant</span>
-        <button
-          onClick={onClose}
-          className="text-lg hover:text-gray-200"
-        >
+        <button onClick={onClose} className="text-lg hover:text-gray-200">
           ✕
         </button>
       </div>
