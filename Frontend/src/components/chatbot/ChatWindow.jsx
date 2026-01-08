@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const BACKEND_URL = "https://vdp-7v1e.onrender.com/api/chat";
+const BACKEND_URL = import.meta.env.VITE_API_CHATBOT;
 
 const ChatWindow = ({ onClose }) => {
   const [messages, setMessages] = useState([
@@ -32,6 +32,9 @@ const ChatWindow = ({ onClose }) => {
         signal: controller.signal,
       });
 
+
+      console.log(res);
+      
       clearTimeout(timeoutId);
 
       if (!res.ok) {
