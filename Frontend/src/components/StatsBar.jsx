@@ -44,7 +44,7 @@ function StatsBar() {
   ];
 
   return (
-    <section className="w-full bg-white py-12">
+    <section className="w-full bg-slate-100 py-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-5 md:grid-cols-5 gap-y-12 gap-x-2 text-center">
           {stats.map((item, index) => (

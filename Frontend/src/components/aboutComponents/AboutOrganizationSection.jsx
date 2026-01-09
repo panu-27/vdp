@@ -1,11 +1,11 @@
 const AboutOrganizationSection = () => {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-gray-50 pb-18 pt-15">
       <div className="max-w-7xl mx-auto px-5">
 
         {/* HEADER */}
         <div className="mb-10">
-          <span className="text-xs font-semibold tracking-wider uppercase text-orange-500">
+          <span className="text-xs font-semibold tracking-wider uppercase text-violet-500">
             Who We Are
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mt-2">

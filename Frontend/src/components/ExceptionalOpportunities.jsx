@@ -23,7 +23,7 @@ const ExceptionalOpportunities = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-15">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
@@ -37,7 +37,7 @@ const ExceptionalOpportunities = () => {
             <div key={index} className="max-w-sm mx-auto">
               
               {/* Icon */}
-              <div className="flex justify-center mb-6 text-orange-500 text-6xl">
+              <div className="flex justify-center mb-6 text-green-700 text-6xl">
                 {item.icon}
               </div>
 

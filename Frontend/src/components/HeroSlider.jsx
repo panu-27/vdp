@@ -82,7 +82,7 @@ function HeroSlider() {
     <section 
       className="relative w-full overflow-hidden bg-black 
                  /* Height: Auto/Aspect on mobile, fixed/tall on desktop */
-                 h-auto aspect-[16/9] md:h-[70vh] lg:h-[85vh]"
+                 h-auto aspect-[16/9] md:h-[55vh] lg:h-[60vh]"
     >
       {/* TRACK */}
       <div
