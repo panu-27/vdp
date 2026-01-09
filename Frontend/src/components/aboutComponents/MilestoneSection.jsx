@@ -1,18 +1,18 @@
 const milestones = [
-  { value: "10+", label: "Projects Built" },
-  { value: "5+", label: "Learning Tracks" },
+  { value: "10K", label: "Lifes Impacted" },
+  { value: "150+", label: "Events Conducted" },
   { value: "1000+", label: "Learners Impacted" },
-  { value: "50+", label: "Hands-on Tutorials" },
+  { value: "14+", label: "Years of experience" },
 ];
 
 const MilestonesSection = () => {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-gray-50 py-15">
       <div className="max-w-7xl mx-auto px-5">
 
         {/* HEADER */}
         <div className="mb-10">
-          <span className="text-xs font-semibold tracking-wider uppercase text-orange-500">
+          <span className="text-xs font-semibold tracking-wider uppercase text-violet-500">
             Our Impact
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mt-2">
@@ -39,7 +39,7 @@ const MilestonesSection = () => {
                   key={i}
                   className="bg-white p-4 rounded-lg shadow-sm"
                 >
-                  <div className="text-orange-500 font-extrabold text-xl">
+                  <div className="text-violet-500 font-extrabold text-xl">
                     {m.value}
                   </div>
                   <div className="text-gray-600 text-sm">

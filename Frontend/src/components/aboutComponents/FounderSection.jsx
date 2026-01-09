@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const FounderSection = () => {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-15">
       <div className="max-w-7xl mx-auto px-5">
 
         {/* HEADER */}
