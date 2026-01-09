@@ -6,6 +6,7 @@ import { useState } from "react";
 const primaryFilters = ["All", "Personal Life", "Events", "Team"];
 
 const secondaryFiltersMap = {
+  All: ["All"],
   "Personal Life": ["All", "Lifestyle", "Cars", "Home", "Family", "Trips"],
   Events: ["All", "Seminars", "Awards", "Meetings"],
   Team: ["All", "Team Building", "Training", "Celebrations"],
@@ -119,25 +120,25 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* ================= SECONDARY FILTER ================= */}
-        {primaryFilter !== "All" && (
-          <div className="flex gap-3 overflow-x-auto pb-2 mb-10">
-            {secondaryFiltersMap[primaryFilter].map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setSecondaryFilter(filter)}
-                className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border
-                  ${
-                    secondaryFilter === filter
-                      ? "bg-gray-900 text-white"
-                      : "bg-white hover:bg-gray-100"
-                  }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        )}
+{/* ================= SECONDARY FILTER ================= */}
+<div className="flex gap-3 overflow-x-auto pb-2 mb-10">
+  {secondaryFiltersMap[primaryFilter].map((filter) => (
+    <button
+      key={filter}
+      onClick={() => setSecondaryFilter(filter)}
+      className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border
+        ${
+          secondaryFilter === filter
+            ? "bg-gray-900 text-white"
+            : "bg-white hover:bg-gray-100"
+        }`}
+    >
+      {filter}
+    </button>
+  ))}
+</div>
+
+
 
         {/* ================= GALLERY GRID ================= */}
         {filteredGallery.length === 0 ? (
