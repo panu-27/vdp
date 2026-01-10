@@ -57,7 +57,7 @@ function Navbar() {
               </div>
               {/* --- DROPDOWN END --- */}
 
-              <NavLink to="/gallery" className={navClass}>Gallery</NavLink>
+              
               <NavLink to="/event" className={navClass}>Events</NavLink>
               <NavLink to="/contact" className={navClass}>Contact Us</NavLink>
             </div>
@@ -105,7 +105,7 @@ function Navbar() {
                 <NavLink to="/success-stories" onClick={closeMenu} className={navClass}>Success Stories</NavLink>
               </div>
 
-              <NavLink to="/gallery" onClick={closeMenu} className={navClass}>Gallery</NavLink>
+              <NavLink to="/event" onClick={closeMenu} className={navClass}>Events</NavLink>
               <NavLink to="/cart" onClick={closeMenu} className={navClass}>Cart</NavLink>
               <NavLink to="/contact" onClick={closeMenu} className={navClass}>Contact Us</NavLink>
 

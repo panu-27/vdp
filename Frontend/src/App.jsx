@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
+import CheckoutLayout from "./layouts/CheckoutLayout";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import About from "./pages/About";
@@ -19,7 +20,6 @@ import ProductReviews from "./pages/ProductsReview";
 import SuccessStoriesPage from "./pages/SuccessStoriesPage";
 import SuccessStoryDetail from "./pages/SuccessStoryDetail";
 import EventDetails from "./pages/EventDetails";
-import { Book } from "lucide-react";
 import Books from "./pages/Books";
 import BusinessTools from "./pages/BusinessTools";
 
@@ -28,27 +28,27 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Home/>} />
-          <Route path="/courses" element={<Courses/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/store" element={<Store/>} />
-          <Route path="/consultancy" element={<Consultancy/>} />
-          
-          <Route path="/gallery" element={<Gallery/>} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/cart" element={<Cart/>} />
-          <Route path="/bookappointment" element={<BookAppointmentForm/>} />
-          <Route path="/checkout" element = {<Checkout/>}/>
-          <Route path="/event" element={<EventPage/>} />
-          <Route path="/event/:eventId" element={<EventDetails/>} />
-          <Route path="/blog" element={<BlogsPage/>} />
-          <Route path="/blog/:blogId" element={<BlogDetail/>} />
-          <Route path="/products" element={<ProductsPage/>} />
-          <Route path="/products/:productId" element={<ProductReviews/>} />
-          <Route path="/success-stories" element={<SuccessStoriesPage/>}/>
-          <Route path="/success-stories/:storyId" element={<SuccessStoryDetail/>}/>
-          <Route path="/books" element = {<Books/>}/>
-          <Route path="/business-tools" element= {<BusinessTools/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/consultancy" element={<Consultancy />} />
+
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+
+          <Route path="/bookappointment" element={<BookAppointmentForm />} />
+
+          <Route path="/event" element={<EventPage />} />
+          <Route path="/event/:eventId" element={<EventDetails />} />
+          <Route path="/blog" element={<BlogsPage />} />
+          <Route path="/blog/:blogId" element={<BlogDetail />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:productId" element={<ProductReviews />} />
+          <Route path="/success-stories" element={<SuccessStoriesPage />} />
+          <Route path="/success-stories/:storyId" element={<SuccessStoryDetail />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/business-tools" element={<BusinessTools />} />
 
           {/* Safety fallback */}
           <Route
@@ -56,7 +56,11 @@ function App() {
             element={<div className="pt-28 px-6">Page not found</div>}
           />
         </Route>
-        <Route path="/login" element={<Login/>} />
+        <Route element={<CheckoutLayout />}>
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

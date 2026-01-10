@@ -1,4 +1,5 @@
-import { ArrowUpRight, Trophy, Zap } from "lucide-react";
+import React from "react";
+import { ArrowUpRight, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const stories = [
@@ -6,41 +7,65 @@ const stories = [
     id: "tech-transform",
     founder: "Arjun Mehta",
     company: "Nexus AI",
-    result: "210% Revenue Growth",
+    result: "210% Growth",
     tag: "Scaling",
-    excerpt: "How Arjun moved from 80-hour work weeks to a fully automated operations model in 4 months.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
-    size: "large" 
   },
   {
     id: "brand-pivot",
     founder: "Ananya Iyer",
     company: "LuxeStay",
-    result: "Exit for $4.2M",
+    result: "Exit $4.2M",
     tag: "Exit Strategy",
-    excerpt: "Redefining leadership mindset to prepare for a high-value acquisition.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
-    size: "small"
   },
   {
     id: "sales-engine",
     founder: "Vikram Seth",
     company: "SaaS Rocket",
-    result: "Zero to $100k MRR",
+    result: "$100k MRR",
     tag: "Sales Mastery",
-    excerpt: "Implementing the Sales Mastery Blueprint to close enterprise deals faster.",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80",
-    size: "small"
   },
   {
     id: "leadership-shift",
     founder: "Karan Malhotra",
-    company: "Global Logistics",
-    result: "Team Efficiency +40%",
+    company: "Logistics",
+    result: "+40% Eff.",
     tag: "Leadership",
-    excerpt: "Building a culture of high-performance and extreme ownership.",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80",
-    size: "large"
+  },
+  {
+    id: "tech-transform",
+    founder: "Arjun Mehta",
+    company: "Nexus AI",
+    result: "210% Growth",
+    tag: "Scaling",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80",
+  },
+  {
+    id: "brand-pivot",
+    founder: "Ananya Iyer",
+    company: "LuxeStay",
+    result: "Exit $4.2M",
+    tag: "Exit Strategy",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
+  },
+  {
+    id: "sales-engine",
+    founder: "Vikram Seth",
+    company: "SaaS Rocket",
+    result: "$100k MRR",
+    tag: "Sales Mastery",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80",
+  },
+  {
+    id: "leadership-shift",
+    founder: "Karan Malhotra",
+    company: "Logistics",
+    result: "+40% Eff.",
+    tag: "Leadership",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80",
   }
 ];
 
@@ -48,91 +73,80 @@ const SuccessStoriesPage = () => {
   return (
     <section className="bg-gray-200 min-h-screen pb-20">
       
-      {/* --- BRANDED OVERLAY HEADER --- */}
-      <div className="relative min-h-[60vh] flex items-end pb-12 md:pb-20 px-6 overflow-hidden bg-white mb-20">
-        <div className="absolute inset-0">
+      {/* --- HERO SECTION (UNCHANGED PER YOUR REQUEST) --- */}
+      <div className="relative w-full bg-white overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-[16/4] bg-slate-950 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
-            alt="Success Stories"
-            className="w-full h-full object-cover opacity-60"
+            src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
+            alt="Hero"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#22294b] to-transparent opacity-80" />
-        </div>
-
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end relative z-10">
-          <div className="md:col-span-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-4 flex items-center gap-2">
-               <Trophy className="w-3 h-3" /> The Portfolio of Excellence
-            </p>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85] text-white">
-              Success <br />
-              <span className="text-blue-500">Stories</span>
-            </h1>
-          </div>
-          <div className="md:col-span-4">
-            <p className="text-slate-300 text-sm md:text-lg border-l-2 border-blue-500 pl-4 md:pl-6 max-w-sm font-medium">
-              A curated look at the founders who dared to scale and the systems that made it possible.
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
         </div>
       </div>
 
-      {/* --- MASONRY GRID --- */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="columns-1 md:columns-2 gap-8 space-y-8">
+      {/* --- COMPACT GRID SECTION --- */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-12 md:mt-20">
+        
+        {/* - grid-cols-2: Always two columns on mobile
+          - lg:grid-cols-3: Three columns on large screens to keep cards small
+        */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {stories.map((story) => (
             <Link 
               to={`/success-stories/${story.id}`} 
               key={story.id} 
-              className="relative block group overflow-hidden break-inside-avoid"
+              className="relative block group"
             >
-              {/* Card Image */}
-              <div className={`relative overflow-hidden rounded-[2rem] bg-slate-100 ${story.size === 'large' ? 'aspect-[4/5]' : 'aspect-square'}`}>
+              {/* THE CARD: aspect-[16/11] makes it half the height of a square card */}
+              <div className="relative overflow-hidden rounded-xl md:rounded-[2rem] bg-slate-100 aspect-[16/11] shadow-md border border-slate-300/30">
                 <img 
                   src={story.image} 
                   alt={story.founder} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                 />
                 
-                {/* Result Overlay */}
-                <div className="absolute top-6 left-6 flex flex-col gap-2">
-                  <div className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-xl">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-900 flex items-center gap-2">
-                      <Zap className="w-3 h-3 text-blue-600 fill-blue-600" /> {story.result}
+                {/* Compact Result Badge */}
+                <div className="absolute top-2 left-2 md:top-5 md:left-5">
+                  <div className="bg-blue-600 px-2 py-0.5 md:px-3 md:py-1 rounded-sm shadow-xl">
+                    <span className="text-[7px] md:text-[10px] font-black uppercase tracking-tighter text-white flex items-center gap-1">
+                      <Zap className="w-2 h-2 md:w-3 md:h-3 fill-white" /> {story.result}
                     </span>
                   </div>
                 </div>
 
-                {/* Bottom Content Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 via-black/20 to-transparent translate-y-4 group-hover:translate-y-0 transition-transform">
-                  <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{story.tag}</p>
-                  <h3 className="text-2xl font-black italic uppercase text-white tracking-tight mb-2">
-                    {story.founder} <span className="text-white/50">/ {story.company}</span>
-                  </h3>
-                  <p className="text-slate-300 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
-                    {story.excerpt}
+                {/* Simplified Bottom Overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-3 md:p-6 bg-gradient-to-t from-slate-950 via-black/20 to-transparent">
+                  <p className="text-blue-400 text-[6px] md:text-[9px] font-black uppercase tracking-[0.2em] mb-0.5">
+                    {story.tag}
                   </p>
+                  <h3 className="text-[10px] md:text-xl font-black italic uppercase text-white tracking-tight leading-none">
+                    {story.founder} <span className="hidden md:inline text-white/40">/ {story.company}</span>
+                  </h3>
                 </div>
               </div>
 
-              {/* Floating Action Link */}
-              <div className="mt-4 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-900 group-hover:text-blue-600 transition-colors">
-                Read Full Case Study <ArrowUpRight className="w-3 h-3" />
+              {/* Action indicator below card */}
+              <div className="mt-2 md:mt-4 flex items-center justify-between px-1">
+                <span className="text-[7px] md:text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 group-hover:text-blue-600 transition-colors">
+                  Case Study
+                </span>
+                <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-blue-600 transition-all group-hover:translate-x-0.5" />
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="bg-slate-900 rounded-[2rem] p-10 md:p-16 mt-20 text-center">
-            <h3 className="text-white text-3xl font-black italic uppercase mb-6">Want results like Them?</h3>
-            <button className="bg-blue-600 text-white px-10 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition-all">
+        {/* --- BRANDED CTA FOOTER --- */}
+        <div className="bg-slate-900 rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-16 mt-16 md:mt-24 text-center shadow-2xl border border-white/5">
+            <h3 className="text-white text-xl md:text-3xl font-black italic uppercase mb-6 leading-tight">
+              Want results <br className="md:hidden" /> like Them?
+            </h3>
+            <button className="w-full md:w-auto bg-blue-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition-all shadow-lg shadow-blue-900/40">
               Book Your Free Scaling Session
             </button>
-          </div>
+        </div>
       </div>
-
-      
-
     </section>
   );
 };

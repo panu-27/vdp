@@ -15,8 +15,9 @@ const AboutOrganizationSection = () => {
 
         {/* IMAGE + TEXT */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* IMAGE */}
-          <div className="order-1 lg:order-2">
+          
+          {/* IMAGE – LEFT */}
+          <div>
             <img
               src="https://picsum.photos/900/600?random=102"
               alt="About VDPatil"
@@ -24,22 +25,25 @@ const AboutOrganizationSection = () => {
             />
           </div>
 
-          {/* TEXT */}
-          <div className="order-2 lg:order-1">
+          {/* TEXT – RIGHT */}
+          <div>
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              VDPatil is a modern education and technology-focused platform
-              designed to help learners build strong fundamentals, industry-ready
-              skills, and practical confidence.
+              Vinayak Dabhade is an entrepreneur, life coach, and business mentor
+              dedicated to helping individuals and organizations unlock clarity,
+              confidence, and sustainable growth.
               <br /><br />
-              The platform focuses on structured learning paths, hands-on
-              projects, and clarity-first teaching, making it suitable for
-              students, developers, and professionals at different stages of
-              their careers.
+              With real-world entrepreneurial experience, he works closely with
+              founders, professionals, and aspiring leaders to build strong
+              mindsets, practical decision-making skills, and scalable business
+              systems.
               <br /><br />
-              VDPatil aims to bridge the gap between academic learning and real
-              industry requirements through focused, easy-to-understand content.
+              His coaching philosophy focuses on clarity-first thinking,
+              disciplined execution, and long-term impact, enabling people to
+              bridge the gap between ambition and action in both personal and
+              professional life.
             </p>
           </div>
+
         </div>
 
       </div>

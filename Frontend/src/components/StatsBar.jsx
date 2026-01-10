@@ -49,30 +49,49 @@ function StatsBar() {
         <div className="grid grid-cols-5 md:grid-cols-5 gap-y-12 gap-x-2 text-center">
           {stats.map((item, index) => (
             <div
-              key={index}
-              className={`
-                flex flex-col items-center gap-2
-                ${mobileGridConfig[index]}
-                md:col-auto md:row-auto
-              `}
-            >
-              <div className="w-12 h-12 flex items-center justify-center">
-                <img
-                  src={item.img}
-                  alt={item.label}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+  key={index}
+  className={`
+    flex flex-col items-center
+    gap-2 sm:gap-3 md:gap-4
+    ${mobileGridConfig[index]}
+    md:col-auto md:row-auto
+  `}
+>
+  {/* Icon */}
+  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-14 md:h-14">
+    <img
+      src={item.img}
+      alt={item.label}
+      className="w-full h-full object-contain"
+    />
+  </div>
 
-              <div className="flex flex-col">
-                <span className="text-sm md:text-xl font-bold text-gray-900 leading-none">
-                  {counts[index].toLocaleString()}+
-                </span>
-                <span className="text-[10px] md:text-xs font-medium text-gray-400 uppercase tracking-tighter mt-1 leading-tight">
-                  {item.label}
-                </span>
-              </div>
-            </div>
+  {/* Text */}
+  <div className="flex flex-col items-center">
+    <span
+      className="
+        text-base sm:text-lg md:text-2xl
+        font-bold text-gray-900
+        leading-none
+      "
+    >
+      {counts[index].toLocaleString()}+
+    </span>
+
+    <span
+      className="
+        text-[9px] sm:text-[10px] md:text-xs
+        font-medium text-gray-400
+        uppercase tracking-wide
+        mt-1
+        text-center
+      "
+    >
+      {item.label}
+    </span>
+  </div>
+</div>
+
           ))}
         </div>
       </div>

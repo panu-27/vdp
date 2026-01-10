@@ -1,23 +1,33 @@
 import { useEffect, useRef, useState } from "react";
+import hero1 from "../assets/HeroSlider/hero1.png";
+import hero2 from "../assets/HeroSlider/hero2.png";
+import hero3 from "../assets/HeroSlider/hero3.png";
+import hero4 from "../assets/HeroSlider/hero4.png";
 
 const slides = [
   {
     title: "COACHING PROGRAM",
     subtitle: "Business Coaching Program is the Universal Language of Change and Learning",
     button: "KNOW MORE",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+    image: hero1,
   },
   {
     title: "LEADERSHIP MINDSET",
     subtitle: "Develop structured thinking and leadership clarity",
     button: "EXPLORE",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    image: hero2,
   },
   {
     title: "BUSINESS GROWTH",
     subtitle: "Build scalable systems for sustainable success",
     button: "START NOW",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    image: hero3,
+  },
+  {
+    title: "PERSONAL DEVELOPMENT",
+    subtitle: "Unlock your potential with personalized coaching",
+    button: "JOIN US",
+    image: hero4,
   },
 ];
 
@@ -81,8 +91,7 @@ function HeroSlider() {
   return (
     <section 
       className="relative w-full overflow-hidden bg-black 
-                 /* Height: Auto/Aspect on mobile, fixed/tall on desktop */
-                 h-auto aspect-[16/9] md:h-[55vh] lg:h-[60vh]"
+                 h-auto aspect-video md:aspect-[16/4]"
     >
       {/* TRACK */}
       <div
@@ -96,20 +105,20 @@ function HeroSlider() {
         onMouseLeave={() => (dragging.current = false)}
       >
         {extendedSlides.map((slide, i) => (
-          <div
-            key={i}
-            className="w-full shrink-0 h-full relative"
-            style={{
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: "cover", // 'cover' is usually better for full-bleed hero sections
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40" />
-            
-            
-          </div>
-        ))}
+  <div
+    key={i}
+    className="w-full shrink-0 h-full relative bg-no-repeat"
+    style={{
+      backgroundImage: `url(${slide.image})`,
+      backgroundSize: "100%",
+      backgroundPosition: "0 30%",
+    }}
+  >
+    {/* Optional overlay */}
+    <div className="absolute inset-0 bg-black/20" />
+  </div>
+))}
+
       </div>
 
       {/* DOTS (Adjusted for extended array) */}

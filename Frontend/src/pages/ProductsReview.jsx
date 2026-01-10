@@ -35,42 +35,18 @@ const ProductReviews = () => {
   return (
     <section className="bg-white min-h-screen pb-20">
       
-      {/* --- BRANDED OVERLAY HEADER --- */}
-      <div className="relative min-h-[60vh] flex items-end pb-12 md:pb-20 px-6 overflow-hidden bg-white mb-20">
-        <div className="absolute inset-0">
+     <div className="relative w-full bg-white overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-[16/4] bg-slate-950 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80"
-            alt="Success Stories Background"
-            className="w-full h-full object-cover opacity-60"
+            src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
+            alt="Hero"
+            className="w-full h-full object-cover"
           />
-          {/* Your Specific Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#22294b] to-transparent opacity-80" />
-        </div>
 
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end relative z-10">
-          <div className="md:col-span-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-4 flex items-center gap-2">
-               <Video className="w-3 h-3" /> Video Testimonials
-            </p>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85] text-white">
-              Wall of <br />
-              <span className="text-blue-500">Success</span>
-            </h1>
-          </div>
-          <div className="md:col-span-4">
-            <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-blue-500 text-blue-500" />
-                ))}
-            </div>
-            <p className="text-slate-300 text-sm md:text-lg border-l-2 border-blue-500 pl-4 md:pl-6 max-w-sm font-medium">
-              Real results for the {displayTitle} program. Discover how these founders automated their growth.
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
         </div>
       </div>
-
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 mt-20">
         {/* Responsive Video/Review Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {dummyReviews.map((review, index) => (

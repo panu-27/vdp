@@ -29,37 +29,19 @@ const ProductsPage = () => {
   return (
     <section className="bg-white min-h-screen pb-20 text-slate-900">
       
-      {/* --- BRANDED OVERLAY HEADER --- */}
-      <div className="relative min-h-[60vh] flex items-end pb-12 md:pb-20 px-6 overflow-hidden bg-white mb-16">
-        <div className="absolute inset-0">
+      <div className="relative w-full bg-white overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-[16/4] bg-slate-950 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
-            alt="Products Header"
-            className="w-full h-full object-cover opacity-60"
+            src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
+            alt="Hero"
+            className="w-full h-full object-cover"
           />
-          {/* Your Specific Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#22294b] to-transparent opacity-80" />
-        </div>
 
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end relative z-10">
-          <div className="md:col-span-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-4">
-               Premium Programs
-            </p>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85] text-white">
-              Our <br />
-              <span className="text-blue-500">Products</span>
-            </h1>
-          </div>
-          <div className="md:col-span-4">
-            <p className="text-slate-300 text-sm md:text-lg border-l-2 border-blue-500 pl-4 md:pl-6 max-w-sm font-medium">
-              Tailored excellence designed for high-impact results. Explore our curated professional growth frameworks.
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 mt-20">
         {/* Products Grid - Optimized Height */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
           {products.map((product) => (

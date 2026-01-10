@@ -1,112 +1,200 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const navigate = useNavigate();
-
-  // Dummy subtotal (replace later with real cart total)
   const subtotal = 13997;
 
+  // step: 1 = address, 2 = payment, 3 = review
+  const [step, setStep] = useState(1);
+
+  const [selectedAddress, setSelectedAddress] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState("");
+
+  const addresses = [
+    {
+      name: "Pranav Zinjad",
+      address: "Flat 203, ABC Apartments, Pune, Maharashtra - 411001",
+      phone: "8956456522",
+    },
+    {
+      name: "Home",
+      address: "Village XYZ, Pune - 410000",
+      phone: "8956456522",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-white flex flex-col md:flex-row">
-      
-      {/* ================= LEFT SIDE : FORM ================= */}
-      <div className="flex-1 p-8 md:p-20 lg:p-32">
-        <div className="max-w-md mx-auto">
-          
+    <div className="min-h-screen bg-gray-100 px-3 py-4">
+      <div className="max-w-5xl mx-auto">
+
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-4">
           <button
             onClick={() => navigate(-1)}
-            className="text-sm font-bold text-gray-400 mb-12 flex items-center gap-2"
+            className="text-sm text-blue-600"
           >
-            ← Back to Bag
+            ← Back to Cart
           </button>
+          <h1 className="text-lg font-semibold">Checkout</h1>
+        </div>
 
-          <h2 className="text-3xl font-black mb-10 tracking-tight">
-            Express Checkout
-          </h2>
+        {/* STEP INDICATOR */}
+        <div className="flex items-center gap-2 text-xs font-medium mb-4">
+          <span className={step >= 1 ? "text-black" : "text-gray-400"}>1 Address</span>
+          <span>›</span>
+          <span className={step >= 2 ? "text-black" : "text-gray-400"}>2 Payment</span>
+          <span>›</span>
+          <span className={step >= 3 ? "text-black" : "text-gray-400"}>3 Review</span>
+        </div>
 
-          <div className="space-y-8">
+        <div className="flex flex-col lg:flex-row gap-6">
 
-            {/* CONTACT */}
-            <section>
-              <h3 className="text-sm font-black uppercase tracking-widest text-gray-400 mb-4">
-                1. Contact
-              </h3>
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-black transition"
-              />
-            </section>
+          {/* LEFT */}
+          <div className="flex-1 space-y-4">
 
-            {/* SHIPPING */}
-            <section>
-              <h3 className="text-sm font-black uppercase tracking-widest text-gray-400 mb-4">
-                2. Shipping
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  placeholder="First Name"
-                  className="bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-black"
-                />
-                <input
-                  placeholder="Last Name"
-                  className="bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-black"
-                />
-              </div>
-              <input
-                placeholder="Address"
-                className="w-full bg-gray-50 border-none rounded-2xl p-4 mt-4 focus:ring-2 focus:ring-black"
-              />
-            </section>
-
-            {/* PAYMENT */}
-            <section>
-              <h3 className="text-sm font-black uppercase tracking-widest text-gray-400 mb-4">
-                3. Payment
-              </h3>
-
-              <div className="border-2 border-black rounded-2xl p-4 flex justify-between items-center cursor-pointer">
-                <span className="font-bold text-sm">
-                  Apple Pay / Google Pay
-                </span>
-                <div className="w-4 h-4 rounded-full bg-black"></div>
+            {/* STEP 1 : ADDRESS */}
+            <div className="bg-white border rounded-md">
+              <div className="flex justify-between items-center px-4 py-3 border-b">
+                <h2 className="text-sm font-semibold">1. Delivery Address</h2>
+                {step > 1 && (
+                  <button
+                    onClick={() => setStep(1)}
+                    className="text-xs text-blue-600"
+                  >
+                    Change
+                  </button>
+                )}
               </div>
 
-              <div className="border border-gray-100 rounded-2xl p-4 flex justify-between items-center mt-3 cursor-pointer text-gray-400">
-                <span className="font-medium text-sm">
-                  Credit Card
-                </span>
-                <div className="w-4 h-4 rounded-full border border-gray-300"></div>
+              {step === 1 ? (
+                <div className="p-4 space-y-3">
+                  {addresses.map((addr, i) => (
+                    <label
+                      key={i}
+                      className={`flex gap-3 border rounded-md p-3 cursor-pointer ${
+                        selectedAddress === i
+                          ? "border-blue-500 bg-blue-50"
+                          : ""
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        checked={selectedAddress === i}
+                        onChange={() => setSelectedAddress(i)}
+                      />
+                      <div>
+                        <p className="text-sm font-medium">{addr.name}</p>
+                        <p className="text-xs text-gray-600">{addr.address}</p>
+                        <p className="text-xs text-gray-600">
+                          Phone: {addr.phone}
+                        </p>
+                      </div>
+                    </label>
+                  ))}
+
+                  <button
+                    onClick={() => setStep(2)}
+                    className="w-full bg-yellow-400 hover:bg-yellow-500 py-2 rounded-md text-sm font-medium"
+                  >
+                    Use this address
+                  </button>
+                </div>
+              ) : (
+                <div className="px-4 py-3 text-sm text-gray-700">
+                  {addresses[selectedAddress].address}
+                </div>
+              )}
+            </div>
+
+            {/* STEP 2 : PAYMENT */}
+            {step >= 2 && (
+              <div className="bg-white border rounded-md">
+                <div className="flex justify-between items-center px-4 py-3 border-b">
+                  <h2 className="text-sm font-semibold">2. Payment Method</h2>
+                  {step > 2 && (
+                    <button
+                      onClick={() => setStep(2)}
+                      className="text-xs text-blue-600"
+                    >
+                      Change
+                    </button>
+                  )}
+                </div>
+
+                {step === 2 ? (
+                  <div className="p-4 space-y-3">
+                    {[
+                      { id: "upi", label: "UPI / Google Pay / PhonePe" },
+                      { id: "card", label: "Credit / Debit Card" },
+                      { id: "cod", label: "Cash on Delivery" },
+                    ].map((method) => (
+                      <label
+                        key={method.id}
+                        className={`flex items-center gap-3 border rounded-md p-3 cursor-pointer ${
+                          paymentMethod === method.id
+                            ? "border-blue-500 bg-blue-50"
+                            : ""
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          checked={paymentMethod === method.id}
+                          onChange={() => setPaymentMethod(method.id)}
+                        />
+                        <span className="text-sm">{method.label}</span>
+                      </label>
+                    ))}
+
+                    <button
+                      disabled={!paymentMethod}
+                      onClick={() => setStep(3)}
+                      className="w-full bg-yellow-400 hover:bg-yellow-500 py-2 rounded-md text-sm font-medium disabled:opacity-50"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                ) : (
+                  <div className="px-4 py-3 text-sm text-gray-700">
+                    Payment method selected
+                  </div>
+                )}
               </div>
-            </section>
+            )}
 
-            <button className="w-full bg-black text-white py-5 rounded-3xl font-bold mt-10 shadow-2xl hover:bg-zinc-800 transition">
-              Pay Now
-            </button>
+            {/* STEP 3 : REVIEW */}
+            {step === 3 && (
+              <div className="bg-white border rounded-md">
+                <div className="px-4 py-3 border-b">
+                  <h2 className="text-sm font-semibold">3. Review & Pay</h2>
+                </div>
 
+                <div className="p-4">
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md text-sm font-medium">
+                    Pay ₹{subtotal}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* RIGHT SUMMARY */}
+          <div className="lg:w-[300px]">
+            <div className="bg-white border rounded-md p-4 sticky top-4">
+              <p className="text-sm mb-2">
+                Order Total:
+                <span className="font-semibold float-right">
+                  ₹{subtotal}
+                </span>
+              </p>
+              <p className="text-xs text-gray-500">
+                Final amount calculated at payment
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* ================= RIGHT SIDE : ORDER SUMMARY ================= */}
-      <div className="hidden md:block w-full md:w-[450px] bg-gray-50 border-l border-gray-100 p-20">
-        <h3 className="text-xl font-bold mb-8">
-          Order Summary
-        </h3>
-
-        <div className="flex justify-between text-gray-500 mb-2">
-          <span>Subtotal</span>
-          <span className="text-black font-semibold">
-            ₹{subtotal}
-          </span>
-        </div>
-
-        <div className="flex justify-between text-2xl font-black mt-10 pt-6 border-t border-gray-200">
-          <span>Total</span>
-          <span>₹{subtotal}</span>
-        </div>
-      </div>
-
     </div>
   );
 };

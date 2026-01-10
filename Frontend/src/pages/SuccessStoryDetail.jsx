@@ -32,29 +32,20 @@ const SuccessStoryDetail = () => {
     <section className="bg-white min-h-screen pb-20 text-slate-900">
       
       {/* --- COMPACT BRANDED HEADER --- */}
-      <div className="relative h-[50vh] flex items-center px-6 overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="relative w-full bg-white overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-[16/4]  bg-slate-950 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
-            alt=""
-            className="w-full h-full object-cover opacity-40"
+            alt="Hero"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#22294b] to-transparent opacity-95" />
-        </div>
 
-        <div className="max-w-4xl mx-auto w-full relative z-10 -mt-10">
-          <Link to="/success-stories" className="flex items-center gap-2 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-6 hover:text-white transition-colors">
-            <ArrowLeft className="w-3 h-3" /> Back to Stories
-          </Link>
-          <h1 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-none text-white">
-            {story.founder} <br />
-            
-          </h1>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
         </div>
       </div>
 
       {/* --- CONTENT LAYOUT --- */}
-      <div className="max-w-4xl mx-auto px-6 -mt-20 relative z-20">
+      <div className="max-w-4xl mx-auto px-6 -mt-20   relative z-20">
         
         {/* VIDEO SECTION */}
         <div className="aspect-video w-full rounded-[2rem] overflow-hidden bg-black shadow-2xl border-4 border-white">
@@ -109,12 +100,46 @@ const SuccessStoryDetail = () => {
           ))}
           
           {/* CLOSING CALL TO ACTION */}
-          <div className="bg-slate-900 rounded-[2rem] p-10 md:p-16 mt-20 text-center">
-            <h3 className="text-white text-3xl font-black italic uppercase mb-6">Want results like {story.founder}?</h3>
-            <button className="bg-blue-600 text-white px-10 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white hover:text-blue-600 transition-all">
-              Book Your Free Scaling Session
-            </button>
-          </div>
+          <div
+  className="
+    bg-slate-200 rounded-[1.5rem] md:rounded-[2rem]
+    px-6 py-8
+    sm:px-8 sm:py-10
+    md:px-12 md:py-14
+    lg:px-16 lg:py-16
+    mt-14 md:mt-20
+    text-center
+  "
+>
+  <h3
+    className="
+      text-blue-500
+      text-xl sm:text-2xl md:text-3xl lg:text-4xl
+      font-black italic uppercase
+      tracking-tight
+      mb-4 sm:mb-5 md:mb-6
+    "
+  >
+    Want results like {story.founder}?
+  </h3>
+
+  <Link to={"/contact"}
+    className="
+      bg-blue-500 text-white
+      px-6 py-3
+      sm:px-8 sm:py-3.5
+      md:px-10 md:py-4
+      rounded-full
+      text-[10px] sm:text-xs
+      font-black uppercase tracking-widest
+      hover:bg-white hover:text-blue-600
+      transition-all duration-300
+    "
+  >
+    Book Your Free Scaling Session
+  </Link>
+</div>
+
         </div>
 
       </div>

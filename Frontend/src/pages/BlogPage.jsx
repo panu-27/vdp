@@ -50,30 +50,16 @@ const BlogPage = () => {
 
   return (
     <section className="bg-slate-50 min-h-screen pb-20">
-      {/* ================= HEADER ================= */}
-      <div className="relative min-h-[60vh] flex items-end pb-12 md:pb-20 px-6 overflow-hidden bg-white">
-        <div className="absolute inset-0">
+
+      <div className="relative w-full bg-white overflow-hidden">
+        <div className="relative w-full aspect-video md:aspect-[16/4] bg-slate-950 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
-            alt=""
-            className="w-full h-full object-cover opacity-60"
+            alt="Hero"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#22294b] to-transparent opacity-80" />
-        </div>
 
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end relative z-10">
-          <div className="md:col-span-8">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85] text-slate-900">
-              Insights & <br />
-              <span className="text-blue-600">Knowledge</span>
-            </h1>
-          </div>
-          <div className="md:col-span-4">
-            <p className="text-yellow-600 text-sm md:text-lg border-l-2 border-blue-600 pl-4 md:pl-6 max-w-sm font-medium">
-              Exclusive articles curated for the next generation of Indian
-              entrepreneurs.
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
         </div>
       </div>
 
@@ -90,11 +76,10 @@ const BlogPage = () => {
                     setActiveCategory(cat);
                     setCurrentPage(1);
                   }}
-                  className={`px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all whitespace-nowrap ${
-                    activeCategory === cat
-                      ? "bg-blue-600 text-white"
-                      : "text-slate-500 hover:bg-slate-100"
-                  }`}
+                  className={`px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all whitespace-nowrap ${activeCategory === cat
+                    ? "bg-blue-600 text-white"
+                    : "text-slate-500 hover:bg-slate-100"
+                    }`}
                 >
                   {cat}
                 </button>
@@ -192,11 +177,10 @@ const BlogPage = () => {
                 <button
                   key={i}
                   onClick={() => paginate(i + 1)}
-                  className={`w-11 h-11 rounded-full font-bold text-sm transition-all border ${
-                    currentPage === i + 1
-                      ? "bg-blue-600 border-blue-600 text-white"
-                      : "border-slate-200 text-slate-500 hover:border-blue-400"
-                  }`}
+                  className={`w-11 h-11 rounded-full font-bold text-sm transition-all border ${currentPage === i + 1
+                    ? "bg-blue-600 border-blue-600 text-white"
+                    : "border-slate-200 text-slate-500 hover:border-blue-400"
+                    }`}
                 >
                   {i + 1}
                 </button>

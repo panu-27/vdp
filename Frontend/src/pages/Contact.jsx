@@ -10,7 +10,7 @@ const Contact = () => {
 
         {/* ================= LEFT : FORM / SUCCESS ================= */}
         <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white flex items-center">
-          <div className="w-full max-w-xl mx-auto px-6 py-10">
+          <div className="w-full max-w-xl mx-auto px-4 py-8 sm:px-6 sm:py-10">
 
             {!submitted ? (
               <>
@@ -18,42 +18,42 @@ const Contact = () => {
                   Get in Touch
                 </span>
 
-                <h1 className="text-4xl sm:text-5xl font-extrabold mt-3 mb-6">
+                <h1 className="text-3xl sm:text-5xl font-extrabold mt-2 mb-5 sm:mb-6">
                   Contact Us
                 </h1>
 
-                <p className="text-blue-100 text-sm sm:text-base mb-10 leading-relaxed">
+                <p className="text-blue-100 text-sm sm:text-base mb-6 sm:mb-10 leading-relaxed">
                   Fill out the form and we’ll connect with you shortly.
                   Whether it’s guidance, collaboration, or support — we’re here.
                 </p>
 
                 <form
-                  className="space-y-6"
+                  className="space-y-5 sm:space-y-6"
                   onSubmit={(e) => {
                     e.preventDefault();
                     setSubmitted(true);
                   }}
                 >
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     <input
                       placeholder="First Name"
-                      className="bg-white/10 border border-white/20 rounded-full px-5 py-3 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
+                      className="bg-white/10 border border-white/20 rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                     />
                     <input
                       placeholder="Last Name"
-                      className="bg-white/10 border border-white/20 rounded-full px-5 py-3 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
+                      className="bg-white/10 border border-white/20 rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                     />
                   </div>
 
                   <input
                     placeholder="Email Address"
-                    className="w-full bg-white/10 border border-white/20 rounded-full px-5 py-3 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-full bg-white/10 border border-white/20 rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white"
                   />
 
                   <textarea
-                    rows="4"
+                    rows="3"
                     placeholder="Ask us anything or share your thoughts..."
-                    className="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white resize-none"
+                    className="w-full bg-white/10 border border-white/20 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 text-sm placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white resize-none"
                   />
 
                   {/* ================= CHECKBOX ================= */}
@@ -69,7 +69,7 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-white text-blue-800 font-semibold py-3 rounded-full hover:bg-blue-50 transition"
+                    className="w-full bg-white text-blue-800 font-semibold py-2.5 sm:py-3 rounded-full hover:bg-blue-50 transition"
                   >
                     Submit
                   </button>
@@ -77,12 +77,12 @@ const Contact = () => {
               </>
             ) : (
               /* ================= SUCCESS SCREEN ================= */
-              <div className="text-center py-20">
-                <h2 className="text-4xl font-extrabold mb-4">
+              <div className="text-center py-16 sm:py-20">
+                <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
                   Thank You! 🎉
                 </h2>
 
-                <p className="text-blue-100 text-base mb-8 leading-relaxed">
+                <p className="text-blue-100 text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
                   Your message has been sent successfully.
                   <br />
                   We’ll get back to you shortly.
@@ -93,7 +93,7 @@ const Contact = () => {
                     setSubmitted(false);
                     setChecked(false);
                   }}
-                  className="bg-white text-blue-800 font-semibold px-6 py-3 rounded-full hover:bg-blue-50 transition"
+                  className="bg-white text-blue-800 font-semibold px-6 py-2.5 sm:py-3 rounded-full hover:bg-blue-50 transition"
                 >
                   Send Another Message
                 </button>
